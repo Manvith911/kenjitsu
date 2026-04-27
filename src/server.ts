@@ -3,13 +3,9 @@ import Fastify, { type FastifyReply, type FastifyRequest } from 'fastify';
 import events from 'events';
 
 import StaticRoutes from './routes/static.js';
-import HianimeRoutes from './routes/anime/hianime.js';
 import AnimepaheRoutes from './routes/anime/animepahe.js';
-import KaidoRoutes from './routes/anime/kaido.js';
 import AnizoneRoutes from './routes/anime/anizone.js';
 import AnilistRoutes from './routes/meta/anilist.js';
-import HimoviesRoutes from './routes/movies/himovies.js';
-import FlixHQRoutes from './routes/movies/flixhq.js';
 
 import { ratelimitOptions, rateLimitPlugIn } from './config/ratelimit.js';
 import fastifyCors, { corsOptions } from './config/cors.js';
@@ -74,13 +70,8 @@ async function FastifyApp() {
   await app.register(fastifyCors, corsOptions);
   await app.register(StaticRoutes);
   await app.register(AnilistRoutes, { prefix: '/api/anilist' });
-  await app.register(HianimeRoutes, { prefix: '/api/hianime' });
-
-  await app.register(KaidoRoutes, { prefix: '/api/kaido' });
   await app.register(AnimepaheRoutes, { prefix: '/api/animepahe' });
   await app.register(AnizoneRoutes, { prefix: '/api/anizone' });
-  await app.register(FlixHQRoutes, { prefix: '/api/flixhq' });
-  await app.register(HimoviesRoutes, { prefix: '/api/himovies' });
 
   try {
     const port = parseInt(process.env.PORT || '3000', 10);

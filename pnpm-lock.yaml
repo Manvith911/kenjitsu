@@ -27,8 +27,8 @@ importers:
         specifier: ^5.10.1
         version: 5.10.1
       kenjitsu-extensions:
-        specifier: ^1.5.1
-        version: 1.5.1
+        specifier: ^1.5.2
+        version: 1.5.2
     devDependencies:
       '@semantic-release/github':
         specifier: ^12.0.6
@@ -1307,8 +1307,8 @@ packages:
   jsonfile@6.2.1:
     resolution: {integrity: sha512-zwOTdL3rFQ/lRdBnntKVOX6k5cKJwEc1HdilT71BWEu7J41gXIB2MRp+vxduPSwZJPWBxEzv4yH1wYLJGUHX4Q==}
 
-  kenjitsu-extensions@1.5.1:
-    resolution: {integrity: sha512-VtcnCqtUXWlA7zNESlGlOGDrZmxV6AdNEV/DFm/tr1aCZKfJ/QtSq582TZonTt0/mpvQoZee7CL4LeF89zEDxg==}
+  kenjitsu-extensions@1.5.2:
+    resolution: {integrity: sha512-kKpcEkewxdI3kq6hcWuvNZXhVDcB8EBPKNJ8+4Ija1BukYKE0eBOFIJviOpme596NCJ5FpraMRAn46PFSmhM2Q==}
 
   keyv@5.6.0:
     resolution: {integrity: sha512-CYDD3SOtsHtyXeEORYRx2qBtpDJFjRTGXUtmNEMGyzYOKj1TE3tycdlho7kA1Ufx9OYWZzg52QFBGALTirzDSw==}
@@ -3610,7 +3610,7 @@ snapshots:
     optionalDependencies:
       graceful-fs: 4.2.11
 
-  kenjitsu-extensions@1.5.1:
+  kenjitsu-extensions@1.5.2:
     dependencies:
       cheerio: 1.2.0
       got-scraping: 4.2.1

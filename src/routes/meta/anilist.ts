@@ -420,7 +420,7 @@ export default async function AnilistRoutes(fastify: FastifyInstance) {
       reply.header('Cache-Control', `public, s-maxage=${24 * 60 * 60}, stale-while-revalidate=300`);
 
       const id = Number(request.params.id);
-      const provider = (request.query.provider as 'hianime' | 'animepahe' | 'anizone' | 'kaido') || 'hianime';
+      const provider = (request.query.provider as 'animekai' | 'animepahe' | 'anizone') || 'animepahe';
 
       if (isNaN(id)) {
         return reply.status(400).send({
@@ -453,11 +453,8 @@ export default async function AnilistRoutes(fastify: FastifyInstance) {
           case 'anizone':
             result = await anilist.fetchAnizoneProviderId(id);
             break;
-          case 'hianime':
-            result = await anilist.fetchAniwatchProviderId(id);
-            break;
-          case 'kaido':
-            result = await anilist.fetchKaidoProviderId(id);
+          case 'animekai':
+            result = await anilist.fetchAnimeKaiProviderId(id);
             break;
         }
         if (!result || typeof result !== 'object') {
@@ -500,7 +497,7 @@ export default async function AnilistRoutes(fastify: FastifyInstance) {
       reply.header('Cache-Control', `public, s-maxage=${0.5 * 60 * 60}, stale-while-revalidate=300`);
 
       const id = Number(request.params.id);
-      const provider = (request.query.provider as 'hianime' | 'animepahe' | 'anizone' | 'kaido') || 'hianime';
+      const provider = (request.query.provider as 'animepahe' | 'anizone') || 'animepahe';
 
       if (isNaN(id)) {
         return reply.status(400).send({
@@ -532,12 +529,6 @@ export default async function AnilistRoutes(fastify: FastifyInstance) {
             break;
           case 'anizone':
             result = await anilist.fetchAnizoneProviderEpisodes(id);
-            break;
-          case 'hianime':
-            result = await anilist.fetchAniwatchProviderEpisodes(id);
-            break;
-          case 'kaido':
-            result = await anilist.fetchKaidoProviderEpisodes(id);
             break;
         }
 
